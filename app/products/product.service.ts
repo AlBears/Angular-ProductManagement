@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core'
 import { Http, Response, Headers, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
-import 'rxrj/add/operator/do';
-import 'rxrj/add/operator/catch';
-import 'rxrj/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import { IProduct } from './product'
 
 

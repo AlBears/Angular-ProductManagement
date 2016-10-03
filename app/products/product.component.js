@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var product_service_1 = require('./product.service');
 var ProductComponent = (function () {
-    function ProductComponent(ProductService) {
-        this.ProductService = ProductService;
+    function ProductComponent(productService) {
+        this.productService = productService;
+        this.imageWidth = 50;
+        this.imageHeight = 50;
     }
     ProductComponent.prototype.ngOnInit = function () {
         var _this = this;

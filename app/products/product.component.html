@@ -1,0 +1,22 @@
+<div>
+    <table class="table table-striped table-condensed">
+        <tr>
+            <td>Image</td>
+            <td>Product Id</td>
+            <td>Product Name</td>
+            <td>Unit Price</td>
+            <td>Description</td>
+        </tr>
+        <tr *ngFor='let product of products'>
+            <td>
+                <img [src]="product.imageUrl" 
+                [style.width.px]="imageWidth" 
+                [style.height.px]="imageHeight"/>
+            </td>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.unitPrice}}</td>
+            <td>{{product.description}}</td>
+        </tr>
+    </table>
+</div>

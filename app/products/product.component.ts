@@ -8,11 +8,13 @@ templateUrl: "app/products/product.component.html",
 providers: [ProductService]
 })
 export class ProductComponent implements OnInit{
-    constructor(private ProductService:ProductService){
+    constructor(private productService:ProductService){
 
     }
     products: IProduct[];
     errorMessage: string;
+    imageWidth:number=50;
+    imageHeight:number=50;
 
     ngOnInit(): void{
         this.productService.getProducts().

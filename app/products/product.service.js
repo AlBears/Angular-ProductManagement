@@ -10,9 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-require('rxrj/add/operator/do');
-require('rxrj/add/operator/catch');
-require('rxrj/add/operator/map');
+require('rxjs/add/operator/do');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
 var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
