@@ -10,22 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var product_component_1 = require('./products/product.component');
-var category_component_1 = require('./categories/category.component');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.pageTitle = "Shoes Land";
+require('rxjs/add/operator/do');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+var CategoryService = (function () {
+    function CategoryService(http) {
+        this.http = http;
+        this.categoriesUrl = "http://localhost:2403/categories";
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: "shoes-app",
-            templateUrl: "app/app.component.html",
-            directives: [product_component_1.ProductComponent, category_component_1.CategoryComponent],
-            providers: [http_1.HTTP_PROVIDERS]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    CategoryService.prototype.getCategories = function () {
+        return this.http.get(this.categoriesUrl)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('Categories listed'); });
+    };
+    CategoryService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], CategoryService);
+    return CategoryService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CategoryService = CategoryService;
+//# sourceMappingURL=category.service.js.map
