@@ -1,6 +1,8 @@
 <p class="lead">{{title}}</p>
 <div class="list-group">
-    <a *ngFor="let category of categories" [routerLink]="['/products/category', category.id]"class="list-group-item">
-        {{category.name}}
+    <a *ngFor="let category of categories" 
+            [routerLink]="['/products/category', category.id]"
+            class="list-group-item">
+         {{category.name}}
     </a>
 </div>

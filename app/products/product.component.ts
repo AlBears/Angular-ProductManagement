@@ -2,21 +2,26 @@ import { Component, OnInit } from '@angular/core'
 import { ProductService } from './product.service'
 import { IProduct } from './product'
 import { Router, ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router'
+import { FORM_DIRECTIVES } from '@angular/forms'
+import { ProductsFilterPipe } from './product-filter.pipe'
 
 @Component({
 selector: "shoes-products",
 templateUrl: "app/products/product.component.html",
-providers: [ProductService]
+providers: [ProductService],
+directives: [FORM_DIRECTIVES],
+pipes: [ProductsFilterPipe]
 })
 export class ProductComponent implements OnInit{
     constructor(private productService:ProductService,
                 private router: Router,
                 private route: ActivatedRoute){}
 
-    products: IProduct[];
+    products: IProduct[] = [];
     errorMessage: string;
-    imageWidth:number=50;
-    imageHeight:number=50;
+    imageWidth: number=50;
+    imageHeight: number=50;
+    filterText: string = "e";
 
     ngOnInit(): void{
         this.route.params.subscribe(

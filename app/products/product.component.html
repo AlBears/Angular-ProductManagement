@@ -1,3 +1,12 @@
+<p class="lead">Filter</p>
+<div class="form-group">
+    <input type="text" class="form-control"
+    [(ngModel)] = "filterText"
+    placeholder="enter your filter text">
+</div>
+<div>
+    You searched for {{filterText}}
+</div>
 <div>
     <table class="table table-striped table-condensed">
         <tr>
@@ -7,7 +16,7 @@
             <td>Unit Price</td>
             <td>Description</td>
         </tr>
-        <tr *ngFor='let product of products'>
+        <tr *ngFor='let product of products | productsFilter:filterText'>
             <td>
                 <img [src]="product.imageUrl" 
                 [style.width.px]="imageWidth" 

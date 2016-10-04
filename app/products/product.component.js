@@ -11,13 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var product_service_1 = require('./product.service');
 var router_1 = require('@angular/router');
+var forms_1 = require('@angular/forms');
+var product_filter_pipe_1 = require('./product-filter.pipe');
 var ProductComponent = (function () {
     function ProductComponent(productService, router, route) {
         this.productService = productService;
         this.router = router;
         this.route = route;
+        this.products = [];
         this.imageWidth = 50;
         this.imageHeight = 50;
+        this.filterText = "e";
     }
     ProductComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -37,7 +41,9 @@ var ProductComponent = (function () {
         core_1.Component({
             selector: "shoes-products",
             templateUrl: "app/products/product.component.html",
-            providers: [product_service_1.ProductService]
+            providers: [product_service_1.ProductService],
+            directives: [forms_1.FORM_DIRECTIVES],
+            pipes: [product_filter_pipe_1.ProductsFilterPipe]
         }), 
         __metadata('design:paramtypes', [product_service_1.ProductService, router_1.Router, router_1.ActivatedRoute])
     ], ProductComponent);
