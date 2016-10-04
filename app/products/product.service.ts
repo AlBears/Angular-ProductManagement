@@ -18,4 +18,9 @@ getProducts(): Observable<IProduct[]> {
         .map((response: Response) => <IProduct[]>response.json())
         .do(data => console.log('Products listed'));
     }
+getProductsByCategory(id: string): Observable<IProduct[]>{
+    return this.http.get(this.productsUrl + "?categoryId=" + id)
+        .map((response: Response) => <IProduct[]>response.json())
+        .do(data => console.log('Products Listed'));
+}
 }

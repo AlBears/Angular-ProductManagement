@@ -4,10 +4,11 @@ import {ROUTER_DIRECTIVES} from '@angular/router'
 import { ProductComponent } from './products/product.component'
 import { CategoryComponent } from './categories/category.component'
 
+
 @Component({
 selector:"shoes-app",
 templateUrl:"app/app.component.html",
-directives: [ProductComponent, CategoryComponent],
+directives: [ProductComponent, CategoryComponent, ROUTER_DIRECTIVES],
 providers: [HTTP_PROVIDERS]
 })
 export class AppComponent {

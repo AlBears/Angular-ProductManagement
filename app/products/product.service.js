@@ -23,6 +23,11 @@ var ProductService = (function () {
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('Products listed'); });
     };
+    ProductService.prototype.getProductsByCategory = function (id) {
+        return this.http.get(this.productsUrl + "?categoryId=" + id)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('Products Listed'); });
+    };
     ProductService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

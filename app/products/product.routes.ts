@@ -5,4 +5,4 @@ export const ProductRoutes: RouterConfig = [
     {
         path: 'products/category/:id', component: ProductComponent
     }
-]
+];

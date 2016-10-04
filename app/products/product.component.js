@@ -10,16 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var product_service_1 = require('./product.service');
+var router_1 = require('@angular/router');
 var ProductComponent = (function () {
-    function ProductComponent(productService) {
+    function ProductComponent(productService, router, route) {
         this.productService = productService;
+        this.router = router;
+        this.route = route;
         this.imageWidth = 50;
         this.imageHeight = 50;
     }
     ProductComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.productService.getProducts().
-            subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
+        this.route.params.subscribe(function (params) {
+            var id = params['id'];
+            if (id) {
+                _this.productService.getProductsByCategory(id).
+                    subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
+            }
+            else {
+                _this.productService.getProducts().
+                    subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
+            }
+        });
     };
     ProductComponent = __decorate([
         core_1.Component({
@@ -27,7 +39,7 @@ var ProductComponent = (function () {
             templateUrl: "app/products/product.component.html",
             providers: [product_service_1.ProductService]
         }), 
-        __metadata('design:paramtypes', [product_service_1.ProductService])
+        __metadata('design:paramtypes', [product_service_1.ProductService, router_1.Router, router_1.ActivatedRoute])
     ], ProductComponent);
     return ProductComponent;
 }());
