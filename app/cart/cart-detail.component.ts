@@ -13,5 +13,8 @@ export class CartDetailComponent implements OnInit{
     ngOnInit() {
         this.cartLines = this.cartService.list();
     }
+    removeFromCart(cartLine: ICartLine){
+        this.cartService.remove(cartLine);
+    }
 
 }

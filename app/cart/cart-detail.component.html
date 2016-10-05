@@ -1,4 +1,8 @@
-<table class="table table-condensed table-striped">
+<p class="lead">
+    Your Cart
+</p>
+<table *ngIf = "cartLines.length > 0"
+    class="table table-condensed table-striped">
     <tr>
         <td>
             Product Name
@@ -6,10 +10,19 @@
         <td>
             Quantity
         </td>
+        <td></td>
     </tr>
     <tr *ngFor = "let cartLine of cartLines">
         <td>{{cartLine.product.name}}</td>
         <td>{{cartLine.count}}</td>
-
+        <td>
+            <button class="btn btn-xs btn-danger"
+            (click) = "removeFromCart(cartLine)">
+            Remove from Cart
+            </button>
+        </td>
     </tr>
 </table>
+<p *ngIf = "cartLines.length == 0">
+    <strong>This cart is empty</strong>
+</p>
