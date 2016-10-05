@@ -1,4 +1,9 @@
 node_modules/
-app/**/*.map
-app/**/*.js
+app/*.map
+app/*.js
+app/categories/*.js.map
+app/categories/*.js
+app/products/*.js.map
+app/products/*.js
+
 

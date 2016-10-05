@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit{
     errorMessage: string;
     imageWidth: number=50;
     imageHeight: number=50;
-    filterText: string = "e";
+    filterText: string = "";
 
     ngOnInit(): void{
         this.route.params.subscribe(

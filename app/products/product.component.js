@@ -21,7 +21,7 @@ var ProductComponent = (function () {
         this.products = [];
         this.imageWidth = 50;
         this.imageHeight = 50;
-        this.filterText = "e";
+        this.filterText = "";
     }
     ProductComponent.prototype.ngOnInit = function () {
         var _this = this;
