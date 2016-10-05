@@ -13,9 +13,11 @@ var product_service_1 = require('./product.service');
 var router_1 = require('@angular/router');
 var forms_1 = require('@angular/forms');
 var product_filter_pipe_1 = require('./product-filter.pipe');
+var cart_service_1 = require('../cart/cart.service');
 var ProductComponent = (function () {
-    function ProductComponent(productService, router, route) {
+    function ProductComponent(productService, cartService, router, route) {
         this.productService = productService;
+        this.cartService = cartService;
         this.router = router;
         this.route = route;
         this.products = [];
@@ -37,15 +39,19 @@ var ProductComponent = (function () {
             }
         });
     };
+    ProductComponent.prototype.addToCart = function (product) {
+        this.cartService.add(product);
+        alert(product.name);
+    };
     ProductComponent = __decorate([
         core_1.Component({
             selector: "shoes-products",
             templateUrl: "app/products/product.component.html",
-            providers: [product_service_1.ProductService],
+            providers: [product_service_1.ProductService, cart_service_1.CartService],
             directives: [forms_1.FORM_DIRECTIVES],
             pipes: [product_filter_pipe_1.ProductsFilterPipe]
         }), 
-        __metadata('design:paramtypes', [product_service_1.ProductService, router_1.Router, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [product_service_1.ProductService, cart_service_1.CartService, router_1.Router, router_1.ActivatedRoute])
     ], ProductComponent);
     return ProductComponent;
 }());

@@ -4,16 +4,18 @@ import { IProduct } from './product'
 import { Router, ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router'
 import { FORM_DIRECTIVES } from '@angular/forms'
 import { ProductsFilterPipe } from './product-filter.pipe'
+import { CartService } from '../cart/cart.service'
 
 @Component({
 selector: "shoes-products",
 templateUrl: "app/products/product.component.html",
-providers: [ProductService],
+providers: [ProductService, CartService],
 directives: [FORM_DIRECTIVES],
 pipes: [ProductsFilterPipe]
 })
 export class ProductComponent implements OnInit{
     constructor(private productService:ProductService,
+                private cartService: CartService,
                 private router: Router,
                 private route: ActivatedRoute){}
 
@@ -39,6 +41,10 @@ export class ProductComponent implements OnInit{
            } 
         )
         
+    }
+    addToCart(product: IProduct):void {
+        this.cartService.add(product);
+        alert(product.name);
     }
 
 }

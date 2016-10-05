@@ -27,7 +27,12 @@
             <td>{{product.name | uppercase}}</td>
             <td>{{product.unitPrice | currency:'USD':true:'1.2-2'}}</td>
             <td>{{product.description}}</td>
-            <td><button class="btn btn-xs btn-success">Add to Cart</button></td>
+            <td><button 
+                class="btn btn-xs btn-success"
+                (click) = 'addToCart(product)'>
+                Add to Cart
+                </button>
+            </td>
         </tr>
     </table>
 </div>
