@@ -5,5 +5,7 @@ app/categories/*.js.map
 app/categories/*.js
 app/products/*.js.map
 app/products/*.js
+app/cart/*.js.map
+app/cart/*.js
 
 

@@ -1,0 +1,15 @@
+<table class="table table-condensed table-striped">
+    <tr>
+        <td>
+            Product Name
+        </td>
+        <td>
+            Quantity
+        </td>
+    </tr>
+    <tr *ngFor = "let cartLine of cartLines">
+        <td>{{cartLine.product.name}}</td>
+        <td>{{cartLine.count}}</td>
+
+    </tr>
+</table>
